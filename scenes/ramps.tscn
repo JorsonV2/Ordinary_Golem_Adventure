@@ -1,0 +1,51 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/ramp_corner_top_left.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/ramp_top_right.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/ramp_bottom_mid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/ramp_mid_right.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ramp_bottom_left.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ramp_corner_top_right.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/ramp_top_left.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/ramp_bottom_right.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/ramp_corner_bottom_right.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/ramp_corner_bottom_left.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/ramp_mid_left.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/ramp_top_mid.tscn" type="PackedScene" id=12]
+
+[node name="tileset" type="Node2D"]
+
+[node name="ramp_bottom_left" parent="." instance=ExtResource( 5 )]
+
+[node name="ramp_bottom_mid" parent="." instance=ExtResource( 3 )]
+position = Vector2( 51.1919, -55.7423 )
+
+[node name="ramp_bottom_right" parent="." instance=ExtResource( 8 )]
+position = Vector2( -6.82556, -61.9991 )
+
+[node name="ramp_corner_bottom_left" parent="." instance=ExtResource( 10 )]
+position = Vector2( 55.7423, -27.8712 )
+
+[node name="ramp_corner_bottom_right" parent="." instance=ExtResource( 9 )]
+position = Vector2( -32.9904, -59.7239 )
+
+[node name="ramp_corner_top_left" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2.27521, 19.908 )
+
+[node name="ramp_corner_top_right" parent="." instance=ExtResource( 6 )]
+position = Vector2( -54.0359, 0 )
+
+[node name="ramp_mid_left" parent="." instance=ExtResource( 11 )]
+position = Vector2( -23.8896, 19.908 )
+
+[node name="ramp_mid_right" parent="." instance=ExtResource( 4 )]
+position = Vector2( 32.4215, 0 )
+
+[node name="ramp_top_left" parent="." instance=ExtResource( 7 )]
+position = Vector2( 22.1832, -46.6415 )
+
+[node name="ramp_top_mid" parent="." instance=ExtResource( 12 )]
+position = Vector2( -8.53198, -30.7152 )
+
+[node name="ramp_top_right" parent="." instance=ExtResource( 2 )]
+position = Vector2( -43.7975, -25.0272 )

@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sfx/break.wav" type="AudioStream" id=1]
+[ext_resource path="res://scripts/item.gd" type="Script" id=2]
+[ext_resource path="res://gfx/fence.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 6 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0.493133 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 42.0
+
+[node name="item" type="Area2D" groups=[
+"can_overlap",
+"item",
+]]
+script = ExtResource( 2 )
+item_texture = ExtResource( 3 )
+item_name = "no_name"
+destroy_text = "OH"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="particle" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.7
+fract_delta = false
+texture = ExtResource( 3 )
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 30.0
+scale_amount_curve = SubResource( 2 )
+
+[node name="notification_colider" type="Area2D" parent="." groups=[
+"can_overlap",
+"item",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="notification_colider"]
+visible = false
+shape = SubResource( 3 )
+
+[node name="destroy_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+[connection signal="area_entered" from="." to="." method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="notification_colider" to="." method="_on_notification_colider_area_entered"]
+[connection signal="area_exited" from="notification_colider" to="." method="_on_notification_colider_area_exited"]

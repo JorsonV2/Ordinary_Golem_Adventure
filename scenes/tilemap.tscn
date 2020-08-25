@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tilesets/ramps.tres" type="TileSet" id=1]
+
+[node name="TileMap" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 14, 14 )
+cell_quadrant_size = 14
+format = 1
